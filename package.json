@@ -1,0 +1,41 @@
+{
+  "name": "ai-native-storytelling",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "AI-native presentation framework for stunning visual storytelling",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "serve": "vite --host",
+    "icons:build": "svgr assets/icons --out-dir shared/components/icons --typescript --icon",
+    "screenshot": "node test/screenshot.js",
+    "test": "node test/screenshot.js"
+  },
+  "dependencies": {
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "@react-three/postprocessing": "^2.16.7",
+    "@xyflow/react": "^12.10.0",
+    "framer-motion": "^11.15.0",
+    "gsap": "^3.12.5",
+    "js-yaml": "^4.1.0",
+    "postprocessing": "^6.38.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^8.1.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "playwright": "^1.58.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.2",
+    "vite": "^6.0.7"
+  }
+}

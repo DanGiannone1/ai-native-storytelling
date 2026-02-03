@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+node_modules_old/
+
+# Build outputs
+/dist/
+/build/
+
+# Local artifacts
+npm_install.log
+.npmrc
+.nvmrc
+
+# Test artifacts
+/test/screenshots/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Tooling profiles
+.chrome-profile/
+.claude/
+
+# Misc
+nul
