@@ -14,6 +14,8 @@ import {
   PromptCaching,
   RPMTrap,
   BatchMode,
+  AgenticEstimationProblem,
+  AgenticEstimationApproach,
 } from './slides'
 
 export const metadata = {
@@ -45,6 +47,8 @@ export default function NavigatingCapacityPresentation() {
       <PromptCaching active={false} />
       <RPMTrap active={false} />
       <BatchMode active={false} />
+      <AgenticEstimationProblem active={false} />
+      <AgenticEstimationApproach active={false} />
     </DeckPlayer>
   )
 }
