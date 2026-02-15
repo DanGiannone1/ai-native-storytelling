@@ -105,7 +105,7 @@ export function PromptCaching({ active }: Props) {
                   40%
                 </span>
                 <p className="text-white/70 text-lg mt-2">
-                  PTU reduction
+                  PTU utilization reduction
                 </p>
                 <p className="text-white/50 text-sm mt-1">
                   from restructuring prompts
