@@ -100,7 +100,7 @@ export function AgenticEstimationProblem({ active }: Props) {
           </div>
 
           {/* VS */}
-          <div className="flex items-center text-white/20 text-xl">vs</div>
+          <div className="flex items-center text-white/40 text-2xl font-light">vs</div>
 
           {/* Agentic Workflow */}
           <div className="agent-box w-80">
@@ -112,32 +112,40 @@ export function AgenticEstimationProblem({ active }: Props) {
                 <span className="text-amber-400 font-semibold">Agentic Workflow</span>
               </div>
 
-              {/* Branching flow */}
-              <div className="flex flex-col items-center mb-5 py-2">
-                <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                  <Icon name="User" size={18} className="text-amber-400" />
-                </div>
-                <div className="w-px h-3 bg-amber-500/30" />
-                <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                  <Icon name="Cpu" size={18} className="text-amber-400" />
-                </div>
-                <div className="flex items-center gap-1 mt-1">
-                  <div className="w-8 h-px bg-amber-500/30 -rotate-45 origin-right" />
-                  <div className="w-px h-3 bg-amber-500/30" />
-                  <div className="w-8 h-px bg-amber-500/30 rotate-45 origin-left" />
-                </div>
-                <div className="flex items-center gap-3 mt-1">
-                  <div className="w-8 h-8 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                    <Icon name="Tool" size={14} className="text-amber-400" />
+              {/* Branching flow - more visual complexity */}
+              <div className="flex flex-col items-center mb-5 py-3">
+                <div className="flex items-center gap-6">
+                  <div className="flex flex-col items-center">
+                    <div className="w-9 h-9 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
+                      <Icon name="Tool" size={16} className="text-amber-400" />
+                    </div>
                   </div>
-                  <div className="w-8 h-8 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                    <Icon name="Tool" size={14} className="text-amber-400" />
+                  <div className="flex flex-col items-center">
+                    <div className="w-11 h-11 rounded-full bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
+                      <Icon name="Cpu" size={20} className="text-amber-400" />
+                    </div>
                   </div>
-                  <div className="w-8 h-8 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                    <Icon name="Users" size={14} className="text-amber-400" />
+                  <div className="flex flex-col items-center">
+                    <div className="w-9 h-9 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
+                      <Icon name="Tool" size={16} className="text-amber-400" />
+                    </div>
                   </div>
                 </div>
-                <p className="text-amber-400/60 text-xs mt-2">5 tools... or 100?</p>
+                <div className="flex items-center gap-2 mt-2">
+                  <div className="w-8 h-8 rounded bg-amber-500/15 border border-amber-500/20 flex items-center justify-center">
+                    <Icon name="Search" size={12} className="text-amber-400/70" />
+                  </div>
+                  <div className="w-8 h-8 rounded bg-amber-500/15 border border-amber-500/20 flex items-center justify-center">
+                    <Icon name="FileText" size={12} className="text-amber-400/70" />
+                  </div>
+                  <div className="w-8 h-8 rounded bg-amber-500/15 border border-amber-500/20 flex items-center justify-center">
+                    <Icon name="Code" size={12} className="text-amber-400/70" />
+                  </div>
+                  <div className="w-8 h-8 rounded bg-amber-500/15 border border-amber-500/20 flex items-center justify-center">
+                    <Icon name="Users" size={12} className="text-amber-400/70" />
+                  </div>
+                </div>
+                <p className="text-amber-400/70 text-xs mt-3 font-medium">5 tool calls... or 100?</p>
               </div>
 
               {/* Token range - wide */}

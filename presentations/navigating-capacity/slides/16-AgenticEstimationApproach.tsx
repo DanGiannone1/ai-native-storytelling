@@ -105,8 +105,8 @@ export function AgenticEstimationApproach({ active }: Props) {
           </div>
 
           {/* Arrow */}
-          <div className="flow-arrow flex items-center pt-24">
-            <Icon name="ChevronRight" size={24} className="text-white/20" />
+          <div className="flow-arrow flex items-center pt-32">
+            <Icon name="ArrowRight" size={24} className="text-white/40" />
           </div>
 
           {/* Column 2: Hybrid Capacity */}
@@ -117,7 +117,7 @@ export function AgenticEstimationApproach({ active }: Props) {
                   2
                 </div>
                 <div className="w-9 h-9 rounded-lg bg-violet-500/20 flex items-center justify-center">
-                  <Icon name="Layers" size={20} className="text-violet-400" />
+                  <Icon name="Database" size={20} className="text-violet-400" />
                 </div>
                 <span className="text-violet-400 font-semibold">Hybrid Capacity</span>
               </div>
@@ -149,8 +149,8 @@ export function AgenticEstimationApproach({ active }: Props) {
           </div>
 
           {/* Arrow */}
-          <div className="flow-arrow flex items-center pt-24">
-            <Icon name="ChevronRight" size={24} className="text-white/20" />
+          <div className="flow-arrow flex items-center pt-32">
+            <Icon name="ArrowRight" size={24} className="text-white/40" />
           </div>
 
           {/* Column 3: Gradual Rollout */}
