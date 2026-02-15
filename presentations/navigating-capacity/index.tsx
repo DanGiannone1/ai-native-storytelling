@@ -3,11 +3,17 @@ import {
   TitleSlide,
   InfrastructureReality,
   SelectionChallenge,
+  Part1ModelSelection,
   MythChatModel,
-  ReasoningParameter,
   CodexBeyondCode,
+  ReasoningParameter,
   MigrationGotchas,
   FoundryLandscape,
+  Part2Capacity,
+  PTUMathProblem,
+  PromptCaching,
+  RPMTrap,
+  BatchMode,
 } from './slides'
 
 export const metadata = {
@@ -18,9 +24,8 @@ export const metadata = {
 const sections: SlideSection[] = [
   { title: 'Intro', startIndex: 0 },
   { title: 'Context', startIndex: 1 },
-  { title: 'Challenges', startIndex: 2 },
-  { title: 'Misconceptions', startIndex: 3 },
-  { title: 'Landscape', startIndex: 7 },
+  { title: 'Model Selection', startIndex: 3 },
+  { title: 'Capacity', startIndex: 9 },
 ]
 
 export default function NavigatingCapacityPresentation() {
@@ -29,11 +34,17 @@ export default function NavigatingCapacityPresentation() {
       <TitleSlide active={false} />
       <InfrastructureReality active={false} />
       <SelectionChallenge active={false} />
+      <Part1ModelSelection active={false} />
       <MythChatModel active={false} />
-      <ReasoningParameter active={false} />
       <CodexBeyondCode active={false} />
+      <ReasoningParameter active={false} />
       <MigrationGotchas active={false} />
       <FoundryLandscape active={false} />
+      <Part2Capacity active={false} />
+      <PTUMathProblem active={false} />
+      <PromptCaching active={false} />
+      <RPMTrap active={false} />
+      <BatchMode active={false} />
     </DeckPlayer>
   )
 }
