@@ -104,9 +104,15 @@ export function BatchMode({ active }: Props) {
               </div>
 
               <div className="space-y-3 text-sm">
-                <div className="flex items-center justify-between">
-                  <span className="text-white/60">Response</span>
-                  <span className="text-white/80">1-3 hrs typical</span>
+                <div className="flex flex-col gap-1">
+                  <div className="flex items-center justify-between">
+                    <span className="text-white/60">SLA</span>
+                    <span className="text-white/80">24 hours</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-white/60">Typical</span>
+                    <span className="text-emerald-400">1-3 hours</span>
+                  </div>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-white/60">Cost</span>
@@ -149,7 +155,7 @@ export function BatchMode({ active }: Props) {
           <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10">
             <p className="text-white/70 text-center">
               <Icon name="Target" size={18} className="text-cyan-400 inline mr-2" />
-              Push back on <span className="text-white/90">"I need it ASAP"</span> — many use-cases don't actually have strict SLAs
+              Worth exploring: <span className="text-white/90">What's the actual latency requirement?</span> Many workloads have more flexibility than initially assumed
             </p>
           </div>
         </div>
