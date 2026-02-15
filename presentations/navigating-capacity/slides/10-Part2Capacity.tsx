@@ -6,7 +6,7 @@ interface Props {
 }
 
 /**
- * Part 2 Section Divider - Capacity Planning
+ * Part 2 Section Divider - Managing Capacity
  */
 export function Part2Capacity({ active }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -54,7 +54,7 @@ export function Part2Capacity({ active }: Props) {
           <div className="divider-line w-24 h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent mx-auto mb-6 origin-center" />
 
           <h1 className="section-title text-6xl font-bold tracking-[0.06em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400">
-            Capacity Planning
+            Managing Capacity
           </h1>
         </div>
       </div>
