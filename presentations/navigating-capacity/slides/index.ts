@@ -1,3 +1,8 @@
 export { TitleSlide } from './01-TitleSlide'
 export { InfrastructureReality } from './02-InfrastructureReality'
 export { SelectionChallenge } from './03-SelectionChallenge'
+export { MythChatModel } from './04-MythChatModel'
+export { ReasoningParameter } from './05-ReasoningParameter'
+export { CodexBeyondCode } from './06-CodexBeyondCode'
+export { MigrationGotchas } from './07-MigrationGotchas'
+export { FoundryLandscape } from './08-FoundryLandscape'
