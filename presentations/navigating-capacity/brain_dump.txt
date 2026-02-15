@@ -1,0 +1,41 @@
+help me figure out how to structure my presentation. the goal is to help educate my colleagues on how to educate customers of azure on how to do model selection and deal with capacity challenges in the LLM world.
+
+the background is that inference capacity is constrained. we can see it in GPU and memory shortages that will extend into 2028. microsoft is already having to choose between allocating GPUs to its internal products like copilot and its enterprise customers via azure. all the hyperscalers are spending hundreds of billions on GPU contracts and capex before it is and will continue to be a scarce resource. additionally, inference demand is skyrocketing now that companies are starting to make it past the pilot purgatory phase and "real" agents like claude code, codex, and github copilot are coming online.
+
+so that is the background/context of the problem statement. recently, ive had to spend a lot of time educating customers on model selection. how the natural replacement for gpt4o is gpt4.1. customers are confused when migrating to the gpt5 series models. gpt5-mini is still a reasoning model, so its not a 1x1 replacement unless you set reasoning parameter =none which i dont think you can do on gpt5-mini. and the model you can do it on (gpt5.1) doesnt have a mini model. so there really is no true replacement for gpt4.1-mini. (double check this). as such, the model retirement date will likely get pushed back. there is also misconception around "Chat" varient openai models like gpt5-chat etc. "chat" is an experimental model varient that openai is trying out, they have not indicated whether or not they will be moving forward with this long-term. as such, the model is in preview with no target date for GA. there is a misconception that customers have where they think "oh i have a chat application, i need the chat model". this is false. in an enterprise setting, reliability and accuracy and logic are more important than "the conversation sounding natural and good back and fourth".
+
+also, customers often dont realize it but the gpt5-codex models are more available and often quite good for many use-cases other than coding. document processing or data analytics for example. there are also non-openai models in foundry but nobody seems to use them or consider them. (I dont know that they have PTU or data zone deployment types though we need to check on that).
+
+in general though many customers dont understand the basics of the "reasoning" parameter and its implications. while the ultimate solution is to have robust evals around your applications so you can quickly and iteratively test/validate new models and versions, the reality is that most enterprise customers DONT have this and dont seem to want to prioritize it. so rule of thumb guidance is the fallback. the fact of the matter is, also, that the LLM you choose is rarely the root cause of a project succeeding or failing. retrieval strategy, chunking/embedding, system design, scalability, etc . ive never seen a use-case fail because they chose gpt5 over gpt5.2.
+
+also, its important to prove out the use-case with the better model and then optimize for cost/latency after youve proved you can do it.
+
+on the capacity side, customers struggle to understand PTU. our docs and our capacity calculator dont tell the full story and its resulting in common misconceptions and pain points. the docs say "for this model, 1 PTU = X TPM". for gpt5-mini i think its 1 PTU is 23500 tokens per minute. however, this doesnt account for the fact that output tokens are 8x the weight on the PTU as input tokens. so customers just add input TPM + output TPM and assume thats the right calculation instead of input tpm + outputTPM*8.
+
+so they will often look at azure monitor and see way under their TPM limit but wonder why their PTU utilization is maxed out at 100% and they are getting errors. the calculator i think does factor this in, but the docs table and the metrics make it unclear. what the calculator nor the docs table cover is the fact that reasoning tokens are billed/weighted as output tokens. so high reasoning results is huge impact on the PTU. again, not something a simple TPM number accounts for.
+
+so in order to actually capacity plan, a customer needs to estimate the number of requests per minute, input tokens, output tokens+reasoning tokens. only then can they adequetly plan. having spillover into paygo is important because its ultimately just estimates.
+
+we also updated the formula when we made the jump from the o-series models to gpt5 series models so the PTU calculation is clearer now. before we didnt even publish the forumla. another thing is prompt caching. customers dont understand the importance of this. for a given deployment, if the first N tokens of your LLM calls are the same, they are cache hits which greatly reduces cost on PayGO and utilization on PTU. decrease in latency for both.
+
+i saw one customer reduce their PTU utilization by 40% by simply revising their system prompt + input context.
+
+also, nowhere in our docs or calculator does it mention RPM, it only ever talks about TPM. customers dont understand that rate limits do exist, and RPM quota scales per PTU along with TPM and cant be scaled separately. many customers think they can send 1000 API calls at the service at once and be fine. not the case.
+
+another thing that customers dont know about or consider enough is batch mode. often times customers are doing use-cases that dont actually have a super strict SLA (sometimes you need to push on this, everybody always just says "I want it ASAP" without looking at things holistically). and would be better off with batch mode.
+
+for high parallelism not in batch mode, you often need to adopt a queue + load balancer/router pattern using APIM and maybe ASB.
+
+at the end of day, building llm-based systems and agentic systems is more of an app-dev activity than an AI activity. many customers dont design the system architecture well because they are super focused on model selection and RAG and stuff like that.
+
+priority processing is a new feature in preview currently that will bring the SLAs and guarantees of PTU into a more consumption-based PAYGO model. this is something that customers should keep an eye on.
+
+estimating agents is hard because you dont know how many TPM it will consume since it could do any number of tool calls/reflect loops. this is an area where you need to actually do some evals to have any sort of confidence in how many tokens common user prompts would take.
+
+on the planning and higher level side, if a customer is requesting regional and not Data zone or global deployment type, you need to make them aware that its not likely available and will become less available over time. msft and the industry overall is moving away from regional. many IT teams will say "We have a policy that it has to be regional" and then they will be stuck. leaders will often not even know that a tradeoff is being made and that data zone can help them move forward while still being in good compliance posture. make sure your customers leadership is aware of this. often times leaders are frustrated at the lack of speed of their orgs and dont understand why. "We have to have the model available in all our regions before we go live or deploy it to the app" is a common challenge. at deloitte we emphasized that copilot doesnt follow this approach and we've prioritized speed over consistency. they should too if they want to be frontier.
+
+also, they need to make us aware of capacity needs at least a month in advance. "We need 100 PTUs tomorrow" is not going to work anymore. this is a great way to get more insight into customer roadmaps, ACR estimates, and CRM hygeine as an added bonus.
+
+also, one other thing, not sure where this goes. claude models in foundry right now dont seem like an option. the compliance and deployment stuff seems like a dealbreaker for big enterprise customers.
+
+i also think we have an opportunity to start pushing non-OpenAI models. 99% of customers are on OpenAI models when the whole point of foundry is that we have thousands. that said, idk if we have capacity or support for these models since nobody is using them or demanding them.

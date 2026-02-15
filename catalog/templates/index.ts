@@ -36,3 +36,7 @@ export type { LoopStation, EquationPart } from './AgentLoop'
 // Time-based
 export { CircularClock } from './CircularClock'
 export type { ClockActivity } from './CircularClock'
+
+// Bento Grid
+export { BentoGrid } from './BentoGrid'
+export type { BentoTile } from './BentoGrid'

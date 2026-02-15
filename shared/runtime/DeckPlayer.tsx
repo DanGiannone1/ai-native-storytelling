@@ -6,11 +6,18 @@ interface SlideProps {
   active: boolean
 }
 
+export interface SlideSection {
+  title: string
+  startIndex: number
+  icon?: string
+}
+
 interface DeckPlayerProps {
   children: ReactNode[]
   title?: string
   showControls?: boolean
   transition?: 'fade' | 'slide' | 'zoom' | 'none'
+  sections?: SlideSection[]
 }
 
 const transitions = {
@@ -41,9 +48,11 @@ export function DeckPlayer({
   title,
   showControls = true,
   transition = 'fade',
+  sections = [],
 }: DeckPlayerProps) {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isFullscreen, setIsFullscreen] = useState(false)
+  const [showNavigator, setShowNavigator] = useState(false)
   const slides = Array.isArray(children) ? children : [children]
   const totalSlides = slides.length
 
@@ -99,8 +108,15 @@ export function DeckPlayer({
           e.preventDefault()
           toggleFullscreen()
           break
+        case 'g':
+        case 'G':
+          e.preventDefault()
+          setShowNavigator(prev => !prev)
+          break
         case 'Escape':
-          if (isFullscreen) {
+          if (showNavigator) {
+            setShowNavigator(false)
+          } else if (isFullscreen) {
             document.exitFullscreen()
             setIsFullscreen(false)
           }
@@ -110,7 +126,7 @@ export function DeckPlayer({
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [nextSlide, prevSlide, goToSlide, totalSlides, toggleFullscreen, isFullscreen])
+  }, [nextSlide, prevSlide, goToSlide, totalSlides, toggleFullscreen, isFullscreen, showNavigator])
 
   // Fullscreen change listener
   useEffect(() => {
@@ -189,6 +205,109 @@ export function DeckPlayer({
           style={{ width: `${((currentSlide + 1) / totalSlides) * 100}%` }}
         />
       </div>
+
+      {/* Non-linear Navigator Overlay */}
+      <AnimatePresence>
+        {showNavigator && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="absolute inset-0 z-50 bg-black/90 backdrop-blur-xl flex flex-col"
+            onClick={() => setShowNavigator(false)}
+          >
+            {/* Header */}
+            <div className="p-6 border-b border-white/10">
+              <div className="flex items-center justify-between max-w-6xl mx-auto">
+                <div>
+                  <h2 className="text-2xl font-bold text-white tracking-wide">{title || 'Slides'}</h2>
+                  <p className="text-white/50 text-sm mt-1">Click a slide to jump • Press G or ESC to close</p>
+                </div>
+                <button
+                  onClick={() => setShowNavigator(false)}
+                  className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                >
+                  <Icon name="X" size={20} className="text-white" />
+                </button>
+              </div>
+            </div>
+
+            {/* Sections (if defined) */}
+            {sections.length > 0 && (
+              <div className="px-6 py-4 border-b border-white/5">
+                <div className="flex gap-2 max-w-6xl mx-auto overflow-x-auto">
+                  {sections.map((section, i) => {
+                    const isActive = currentSlide >= section.startIndex &&
+                      (i === sections.length - 1 || currentSlide < sections[i + 1].startIndex)
+                    return (
+                      <button
+                        key={i}
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          goToSlide(section.startIndex)
+                          setShowNavigator(false)
+                        }}
+                        className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all ${
+                          isActive
+                            ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/40'
+                            : 'bg-white/5 text-white/70 hover:bg-white/10 border border-transparent'
+                        }`}
+                      >
+                        {section.title}
+                      </button>
+                    )
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Slide Grid */}
+            <div className="flex-1 overflow-y-auto p-6">
+              <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4 max-w-6xl mx-auto">
+                {slides.map((_, index) => {
+                  const isCurrent = index === currentSlide
+                  // Find section for this slide
+                  const section = sections.findLast(s => s.startIndex <= index)
+
+                  return (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        goToSlide(index)
+                        setShowNavigator(false)
+                      }}
+                      className={`relative aspect-video rounded-lg overflow-hidden transition-all hover:scale-105 hover:ring-2 hover:ring-cyan-500/50 ${
+                        isCurrent ? 'ring-2 ring-cyan-500 bg-cyan-500/20' : 'bg-white/5'
+                      }`}
+                    >
+                      {/* Slide number */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className={`text-2xl font-bold ${isCurrent ? 'text-cyan-400' : 'text-white/30'}`}>
+                          {index + 1}
+                        </span>
+                      </div>
+
+                      {/* Section indicator */}
+                      {section && index === section.startIndex && (
+                        <div className="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-violet-500/30 text-violet-300 text-[9px] font-medium uppercase tracking-wider">
+                          {section.title}
+                        </div>
+                      )}
+
+                      {/* Current indicator */}
+                      {isCurrent && (
+                        <div className="absolute bottom-1 right-1 w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                      )}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
