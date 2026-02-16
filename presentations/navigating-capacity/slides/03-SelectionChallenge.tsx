@@ -23,6 +23,7 @@ export function SelectionChallenge({ active }: Props) {
     const title = container.querySelector('.slide-title')
     const subtitle = container.querySelector('.slide-subtitle')
     const startNode = container.querySelector('.start-node')
+    const lines = container.querySelectorAll('.connection-line')
     const challenges = container.querySelectorAll('.challenge-node')
 
     // Title
@@ -35,10 +36,22 @@ export function SelectionChallenge({ active }: Props) {
       { opacity: 1, scale: 1, duration: 0.6, delay: 0.5, ease: 'back.out(1.5)' }
     )
 
-    // Challenge nodes appear
+    // Lines draw outward from center
+    lines.forEach((line, i) => {
+      const length = (line as SVGLineElement).getTotalLength?.() || 300
+      gsap.set(line, { strokeDasharray: length, strokeDashoffset: length })
+      gsap.to(line, {
+        strokeDashoffset: 0,
+        duration: 0.4,
+        delay: 0.9 + i * 0.1,
+        ease: 'power2.out'
+      })
+    })
+
+    // Challenge nodes appear after their lines draw
     gsap.fromTo(challenges,
       { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, duration: 0.5, stagger: 0.12, delay: 0.8, ease: 'back.out(1.4)' }
+      { opacity: 1, scale: 1, duration: 0.4, stagger: 0.1, delay: 1.1, ease: 'back.out(1.4)' }
     )
 
   }, [active])
@@ -141,7 +154,7 @@ export function SelectionChallenge({ active }: Props) {
               ))}
             </defs>
 
-            {/* Static branching paths */}
+            {/* Animated branching paths */}
             {challenges.map((c, i) => {
               const startX = 400
               const startY = 220
@@ -151,6 +164,7 @@ export function SelectionChallenge({ active }: Props) {
               return (
                 <line
                   key={i}
+                  className="connection-line"
                   x1={startX} y1={startY} x2={endX} y2={endY}
                   stroke={`url(#path-grad-${i})`}
                   strokeWidth="2"
