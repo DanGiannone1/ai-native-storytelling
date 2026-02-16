@@ -64,7 +64,7 @@ export function MigrationGotchas({ active }: Props) {
         </div>
 
         {/* Two gotcha cards side by side */}
-        <div className="flex gap-8 max-w-5xl">
+        <div className="flex gap-8 max-w-5xl items-stretch">
           {/* Gotcha 1: No reasoning control on GPT-5 */}
           <div className="gotcha-card flex-1">
             <div className="h-full px-7 py-6 rounded-xl border border-red-500/30 bg-black/60 backdrop-blur-sm">

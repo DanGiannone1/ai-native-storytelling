@@ -51,7 +51,7 @@ export function Part1ModelSelection({ active }: Props) {
             Part 1
           </p>
 
-          <div className="divider-line w-24 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto mb-6 origin-center" />
+          <div className="divider-line w-32 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent mx-auto mb-6 origin-center" />
 
           <h1 className="section-title text-6xl font-bold tracking-[0.06em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400">
             Model Selection

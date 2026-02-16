@@ -114,10 +114,10 @@ export function ReasoningParameter({ active }: Props) {
             <div className="slider-track h-3 rounded-full bg-gradient-to-r from-emerald-500/40 via-yellow-500/40 to-red-500/40 origin-left" />
 
             {/* Thumb */}
-            <div className="slider-thumb absolute top-1/2 -translate-y-1/2 left-[20%] w-6 h-6 rounded-full bg-white shadow-lg shadow-violet-500/50 border-2 border-violet-400" />
+            <div className="slider-thumb absolute top-0 -translate-y-1/2 left-[20%] w-6 h-6 rounded-full bg-white shadow-lg shadow-violet-500/50 border-2 border-violet-400" style={{ top: '6px' }} />
 
             {/* Labels */}
-            <div className="flex justify-between mt-4">
+            <div className="flex justify-between mt-6">
               <span className="slider-label text-emerald-400 font-medium">low</span>
               <span className="slider-label text-yellow-400 font-medium">medium</span>
               <span className="slider-label text-red-400 font-medium">high</span>

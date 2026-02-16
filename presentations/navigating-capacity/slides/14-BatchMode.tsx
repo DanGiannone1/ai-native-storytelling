@@ -52,28 +52,28 @@ export function BatchMode({ active }: Props) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.5)_100%)]" />
 
       <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center h-full px-16">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
             Batch Mode
           </h1>
-          <p className="slide-subtitle text-white/50 mt-3 text-lg">
+          <p className="slide-subtitle text-white/50 mt-2 text-lg">
             Not everything needs real-time
           </p>
         </div>
 
         {/* Comparison */}
-        <div className="flex items-stretch gap-8 mb-8">
+        <div className="flex items-stretch gap-8 mb-6">
           {/* Real-time */}
           <div className="realtime-box w-72">
-            <div className="h-full px-6 py-5 rounded-xl border border-amber-500/30 bg-black/60">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                  <Icon name="Zap" size={22} className="text-amber-400" />
+            <div className="h-full px-6 py-4 rounded-xl border border-amber-500/30 bg-black/60">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                  <Icon name="Zap" size={20} className="text-amber-400" />
                 </div>
                 <span className="text-amber-400 font-semibold">Real-time API</span>
               </div>
 
-              <div className="space-y-3 text-sm">
+              <div className="space-y-2.5 text-sm">
                 <div className="flex items-center justify-between">
                   <span className="text-white/60">Response</span>
                   <span className="text-white/80">Immediate</span>
@@ -95,16 +95,16 @@ export function BatchMode({ active }: Props) {
 
           {/* Batch */}
           <div className="batch-box w-72">
-            <div className="h-full px-6 py-5 rounded-xl border border-emerald-500/30 bg-black/60">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-emerald-500/20 flex items-center justify-center">
-                  <Icon name="Clock" size={22} className="text-emerald-400" />
+            <div className="h-full px-6 py-4 rounded-xl border border-emerald-500/30 bg-black/60">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-9 h-9 rounded-lg bg-emerald-500/20 flex items-center justify-center">
+                  <Icon name="Clock" size={20} className="text-emerald-400" />
                 </div>
                 <span className="text-emerald-400 font-semibold">Batch Mode</span>
               </div>
 
-              <div className="space-y-3 text-sm">
-                <div className="flex flex-col gap-1">
+              <div className="space-y-2.5 text-sm">
+                <div className="flex flex-col gap-0.5">
                   <div className="flex items-center justify-between">
                     <span className="text-white/60">SLA</span>
                     <span className="text-white/80">24 hours</span>
@@ -128,23 +128,23 @@ export function BatchMode({ active }: Props) {
         </div>
 
         {/* Good use cases for batch */}
-        <div className="mb-8">
-          <p className="text-white/40 text-sm uppercase tracking-wider mb-4 text-center">Good candidates for batch</p>
-          <div className="flex items-center gap-4">
-            <div className="use-case flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-              <Icon name="BarChart" size={16} className="text-emerald-400" />
+        <div className="mb-5">
+          <p className="text-white/40 text-sm uppercase tracking-wider mb-3 text-center">Good candidates for batch</p>
+          <div className="flex items-center gap-3">
+            <div className="use-case flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+              <Icon name="BarChart" size={14} className="text-emerald-400" />
               <span className="text-white/70 text-sm">Nightly reports</span>
             </div>
-            <div className="use-case flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-              <Icon name="Database" size={16} className="text-emerald-400" />
+            <div className="use-case flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+              <Icon name="Database" size={14} className="text-emerald-400" />
               <span className="text-white/70 text-sm">Bulk document processing</span>
             </div>
-            <div className="use-case flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-              <Icon name="RefreshCw" size={16} className="text-emerald-400" />
+            <div className="use-case flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+              <Icon name="RefreshCw" size={14} className="text-emerald-400" />
               <span className="text-white/70 text-sm">Data enrichment</span>
             </div>
-            <div className="use-case flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
-              <Icon name="Search" size={16} className="text-emerald-400" />
+            <div className="use-case flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20">
+              <Icon name="Search" size={14} className="text-emerald-400" />
               <span className="text-white/70 text-sm">Batch classification</span>
             </div>
           </div>
@@ -152,9 +152,9 @@ export function BatchMode({ active }: Props) {
 
         {/* Callout */}
         <div className="callout max-w-xl">
-          <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10">
-            <p className="text-white/70 text-center">
-              <Icon name="Target" size={18} className="text-cyan-400 inline mr-2" />
+          <div className="px-6 py-3 rounded-xl bg-white/5 border border-white/10">
+            <p className="text-white/70 text-center text-sm">
+              <Icon name="Target" size={16} className="text-cyan-400 inline mr-2" />
               Worth exploring: <span className="text-white/90">What's the actual latency requirement?</span> Many workloads have more flexibility than initially assumed
             </p>
           </div>

@@ -94,7 +94,7 @@ export function SelectionChallenge({ active }: Props) {
       label: 'Evaluation Gaps',
       description: 'Robust eval frameworks exist but not yet prioritized',
       color: '#10b981',
-      position: { x: 0, y: 220 },
+      position: { x: 0, y: 195 },
     },
   ]
 
@@ -131,7 +131,7 @@ export function SelectionChallenge({ active }: Props) {
 
       <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center h-full">
         {/* Header */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-4">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
             The Model Selection Challenge
           </h1>
@@ -141,7 +141,7 @@ export function SelectionChallenge({ active }: Props) {
         </div>
 
         {/* Branching Path Visualization */}
-        <div className="relative w-[800px] h-[500px]">
+        <div className="relative w-[800px] h-[480px]">
           {/* SVG paths connecting center to challenges */}
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 800 500">
             <defs>

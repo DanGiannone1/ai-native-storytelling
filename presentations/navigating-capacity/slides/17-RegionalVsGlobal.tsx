@@ -54,17 +54,17 @@ export function RegionalVsGlobal({ active }: Props) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.5)_100%)]" />
 
       <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center h-full px-16">
-        <div className="text-center mb-8">
+        <div className="text-center mb-5">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
             Regional vs Global/Data Zone
           </h1>
-          <p className="slide-subtitle text-white/50 mt-3 text-lg">
+          <p className="slide-subtitle text-white/50 mt-2 text-lg">
             The industry is moving — is your policy keeping up?
           </p>
         </div>
 
         {/* Comparison */}
-        <div className="flex items-center gap-6 mb-8">
+        <div className="flex items-center gap-6 mb-5">
           {/* Regional - the old way */}
           <div className="regional-box w-72">
             <div className="px-5 py-5 rounded-xl border border-amber-500/30 bg-black/60">
@@ -127,8 +127,8 @@ export function RegionalVsGlobal({ active }: Props) {
         </div>
 
         {/* The insight */}
-        <div className="insight-box max-w-2xl mb-6">
-          <div className="px-6 py-4 rounded-xl bg-violet-500/10 border border-violet-500/30">
+        <div className="insight-box max-w-2xl mb-4">
+          <div className="px-5 py-3 rounded-xl bg-violet-500/10 border border-violet-500/30">
             <div className="flex items-start gap-4">
               <div className="w-10 h-10 rounded-lg bg-violet-500/20 flex items-center justify-center flex-shrink-0">
                 <Icon name="Sparkles" size={20} className="text-violet-400" />
@@ -144,7 +144,7 @@ export function RegionalVsGlobal({ active }: Props) {
 
         {/* Bottom callout */}
         <div className="callout max-w-2xl">
-          <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10">
+          <div className="px-5 py-3 rounded-xl bg-white/5 border border-white/10">
             <p className="text-white/70 text-center text-sm">
               <Icon name="Target" size={16} className="text-cyan-400 inline mr-2" />
               Leadership often doesn't know a tradeoff is being made. Help them understand: <span className="text-white/90">speed & agility</span> vs <span className="text-white/90">standardization & compliance</span>

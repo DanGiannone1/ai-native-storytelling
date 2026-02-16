@@ -105,7 +105,7 @@ export function AgenticEstimationApproach({ active }: Props) {
           </div>
 
           {/* Arrow */}
-          <div className="flow-arrow flex items-center pt-32">
+          <div className="flow-arrow flex items-center self-center">
             <Icon name="ArrowRight" size={24} className="text-white/40" />
           </div>
 
@@ -149,7 +149,7 @@ export function AgenticEstimationApproach({ active }: Props) {
           </div>
 
           {/* Arrow */}
-          <div className="flow-arrow flex items-center pt-32">
+          <div className="flow-arrow flex items-center self-center">
             <Icon name="ArrowRight" size={24} className="text-white/40" />
           </div>
 

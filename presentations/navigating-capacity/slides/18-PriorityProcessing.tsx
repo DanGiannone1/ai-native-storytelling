@@ -69,7 +69,7 @@ export function PriorityProcessing({ active }: Props) {
         </div>
 
         {/* The equation: PTU benefits + PayGo flexibility = Priority Processing */}
-        <div className="flex items-center gap-6 mb-10">
+        <div className="flex items-center gap-6 mb-6">
           {/* PTU benefits */}
           <div className="ptu-box w-56">
             <div className="px-5 py-4 rounded-xl border border-cyan-500/30 bg-black/60">
@@ -119,11 +119,11 @@ export function PriorityProcessing({ active }: Props) {
         </div>
 
         {/* Result */}
-        <div className="result-box mb-8">
-          <div className="px-10 py-6 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40">
+        <div className="result-box mb-5">
+          <div className="px-8 py-5 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-cyan-500/20 border border-emerald-500/40">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-xl bg-emerald-500/20 flex items-center justify-center">
-                <Icon name="Sparkles" size={28} className="text-emerald-400" />
+              <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                <Icon name="Sparkles" size={24} className="text-emerald-400" />
               </div>
               <div>
                 <p className="text-emerald-400 font-bold text-xl">Priority Processing</p>
@@ -135,7 +135,7 @@ export function PriorityProcessing({ active }: Props) {
 
         {/* Bottom callout */}
         <div className="callout max-w-xl">
-          <div className="px-6 py-4 rounded-xl bg-white/5 border border-white/10">
+          <div className="px-5 py-3 rounded-xl bg-white/5 border border-white/10">
             <p className="text-white/70 text-center">
               <Icon name="Eye" size={18} className="text-violet-400 inline mr-2" />
               <span className="text-violet-400 font-medium">Keep an eye on this</span> — likely to become very popular once it hits GA

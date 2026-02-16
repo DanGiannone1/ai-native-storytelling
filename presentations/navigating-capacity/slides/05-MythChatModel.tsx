@@ -80,7 +80,7 @@ export function MythChatModel({ active }: Props) {
         </div>
 
         {/* Main visual - Two boxes with ≠ */}
-        <div className="flex items-center gap-8 mb-16">
+        <div className="flex items-center gap-8 mb-12">
           {/* Left box - Chat Application */}
           <div className="left-box">
             <div className="w-[280px] px-8 py-10 rounded-2xl border border-cyan-500/30 bg-black/60 backdrop-blur-sm">

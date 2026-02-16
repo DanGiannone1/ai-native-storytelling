@@ -48,19 +48,19 @@ export function InfrastructureReality({ active }: Props) {
       headline: 'Supply constrained through 2028',
       subtext: 'GPU, memory & energy shortages are structural—not temporary',
       color: '#f97316',
-      position: { x: 0, y: -200 }, // top - moved down to avoid subtitle overlap
+      position: { x: 0, y: -170 }, // top
     },
     {
       headline: 'Microsoft prioritizing internally',
       subtext: 'Having to choose between internal products and enterprise customers',
       color: '#ef4444',
-      position: { x: -280, y: 200 }, // bottom-left
+      position: { x: -280, y: 150 }, // bottom-left
     },
     {
       headline: '100× demand explosion',
       subtext: 'Production AI agents running 24/7 coming online',
       color: '#eab308',
-      position: { x: 280, y: 200 }, // bottom-right
+      position: { x: 280, y: 150 }, // bottom-right
     },
   ]
 
@@ -83,7 +83,7 @@ export function InfrastructureReality({ active }: Props) {
 
       <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center h-full">
         {/* Header */}
-        <div className="text-center mb-4">
+        <div className="text-center mb-2">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
             The Capacity Reality
           </h1>
@@ -93,7 +93,7 @@ export function InfrastructureReality({ active }: Props) {
         </div>
 
         {/* Pressure Visualization */}
-        <div className="relative w-[900px] h-[550px]">
+        <div className="relative w-[900px] h-[480px]">
           {/* SVG for animated flowing arrows */}
           <svg className="absolute inset-0 w-full h-full" viewBox="0 0 900 550">
             <defs>

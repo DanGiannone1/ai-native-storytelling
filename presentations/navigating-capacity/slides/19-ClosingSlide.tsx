@@ -95,22 +95,22 @@ export function ClosingSlide({ active }: Props) {
             </span>
           </h1>
 
-          <p className="subtitle text-white/50 text-xl mb-12">
+          <p className="subtitle text-white/50 text-xl mb-8">
             Let's discuss your specific scenarios
           </p>
 
           {/* Key takeaways */}
           <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto">
-            <div className="takeaway p-5 rounded-xl bg-white/5 border border-cyan-500/20 backdrop-blur-sm flex flex-col items-center gap-3">
-              <Icon name="Cpu" size={28} className="text-cyan-400" />
+            <div className="takeaway p-4 rounded-xl bg-white/5 border border-cyan-500/20 backdrop-blur-sm flex flex-col items-center gap-2">
+              <Icon name="Cpu" size={24} className="text-cyan-400" />
               <span className="text-white/80 text-sm font-medium">Right model for the job</span>
             </div>
-            <div className="takeaway p-5 rounded-xl bg-white/5 border border-violet-500/20 backdrop-blur-sm flex flex-col items-center gap-3">
-              <Icon name="BarChart" size={28} className="text-violet-400" />
+            <div className="takeaway p-4 rounded-xl bg-white/5 border border-violet-500/20 backdrop-blur-sm flex flex-col items-center gap-2">
+              <Icon name="BarChart" size={24} className="text-violet-400" />
               <span className="text-white/80 text-sm font-medium">Understand true capacity</span>
             </div>
-            <div className="takeaway p-5 rounded-xl bg-white/5 border border-emerald-500/20 backdrop-blur-sm flex flex-col items-center gap-3">
-              <Icon name="TrendingUp" size={28} className="text-emerald-400" />
+            <div className="takeaway p-4 rounded-xl bg-white/5 border border-emerald-500/20 backdrop-blur-sm flex flex-col items-center gap-2">
+              <Icon name="TrendingUp" size={24} className="text-emerald-400" />
               <span className="text-white/80 text-sm font-medium">Optimize & iterate</span>
             </div>
           </div>

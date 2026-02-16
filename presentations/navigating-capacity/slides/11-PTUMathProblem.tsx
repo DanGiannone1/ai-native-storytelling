@@ -54,78 +54,78 @@ export function PTUMathProblem({ active }: Props) {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.5)_100%)]" />
 
       <div ref={containerRef} className="relative z-10 flex flex-col items-center justify-center h-full px-16">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
             PTU Math
           </h1>
-          <p className="slide-subtitle text-white/50 mt-3 text-lg">
+          <p className="slide-subtitle text-white/50 mt-2 text-lg">
             The docs and calculator don't tell the full story
           </p>
         </div>
 
         {/* Row 1: What docs say */}
-        <div className="docs-box flex items-center gap-4 px-6 py-4 rounded-xl border border-amber-500/30 bg-black/60 mb-4">
+        <div className="docs-box flex items-center gap-4 px-6 py-3 rounded-xl border border-amber-500/30 bg-black/60 mb-3">
           <Icon name="FileText" size={20} className="text-amber-400" />
           <span className="text-amber-400 font-medium">The Docs:</span>
           <span className="font-mono text-lg text-white/80">"1 PTU = 23,500 TPM"</span>
-          <span className="text-white/40 mx-2">→</span>
+          <span className="text-white/40 mx-2">&rarr;</span>
           <span className="font-mono text-lg text-white/80">TPM = Input + Output</span>
         </div>
 
         {/* Arrow down */}
-        <div className="arrow-1 text-white/20 my-2 rotate-90">
-          <Icon name="ArrowRight" size={24} />
+        <div className="arrow-1 text-white/20 my-1 rotate-90">
+          <Icon name="ArrowRight" size={20} />
         </div>
 
         {/* Row 2: The gauges */}
-        <div className="gauges flex items-center gap-12 my-4">
+        <div className="gauges flex items-center gap-8 my-2">
           <div className="text-center">
-            <div className="w-28 h-28 rounded-full bg-black border-2 border-white/10 flex flex-col items-center justify-center relative">
+            <div className="w-20 h-20 rounded-full bg-black border-2 border-white/10 flex flex-col items-center justify-center relative">
               <svg className="absolute inset-0 w-full h-full -rotate-90">
-                <circle cx="56" cy="56" r="48" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="6" />
-                <circle cx="56" cy="56" r="48" fill="none" stroke="#10b981" strokeWidth="6"
-                  strokeDasharray={`${0.47 * 301.6} 301.6`} strokeLinecap="round" />
+                <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="4" />
+                <circle cx="40" cy="40" r="32" fill="none" stroke="#10b981" strokeWidth="4"
+                  strokeDasharray={`${0.47 * 201} 201`} strokeLinecap="round" />
               </svg>
-              <span className="text-3xl font-bold text-emerald-400">47%</span>
+              <span className="text-xl font-bold text-emerald-400">47%</span>
             </div>
-            <p className="text-white/50 mt-2 text-sm">TPM Used</p>
+            <p className="text-white/50 mt-1 text-sm">TPM Used</p>
           </div>
 
-          <div className="text-white/30 text-xl">vs</div>
+          <div className="text-white/30 text-lg">vs</div>
 
           <div className="text-center">
-            <div className="w-28 h-28 rounded-full bg-black border-2 border-red-500/30 flex flex-col items-center justify-center relative">
+            <div className="w-20 h-20 rounded-full bg-black border-2 border-red-500/30 flex flex-col items-center justify-center relative">
               <svg className="absolute inset-0 w-full h-full -rotate-90">
-                <circle cx="56" cy="56" r="48" fill="none" stroke="rgba(239,68,68,0.1)" strokeWidth="6" />
-                <circle cx="56" cy="56" r="48" fill="none" stroke="#ef4444" strokeWidth="6"
-                  strokeDasharray="301.6 301.6" strokeLinecap="round" />
+                <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(239,68,68,0.1)" strokeWidth="4" />
+                <circle cx="40" cy="40" r="32" fill="none" stroke="#ef4444" strokeWidth="4"
+                  strokeDasharray="201 201" strokeLinecap="round" />
               </svg>
-              <span className="text-3xl font-bold text-red-400">100%</span>
+              <span className="text-xl font-bold text-red-400">100%</span>
             </div>
-            <p className="text-red-400 mt-2 text-sm font-medium">PTU Maxed</p>
+            <p className="text-red-400 mt-1 text-sm font-medium">PTU Maxed</p>
           </div>
 
-          <div className="pl-8 border-l border-white/10">
-            <p className="text-white/60 text-lg">"Why am I getting throttled?"</p>
+          <div className="pl-6 border-l border-white/10">
+            <p className="text-white/60 text-base">"Why am I getting throttled?"</p>
           </div>
         </div>
 
         {/* Arrow down */}
-        <div className="arrow-2 text-white/20 my-2 rotate-90">
-          <Icon name="ArrowRight" size={24} />
+        <div className="arrow-2 text-white/20 my-0.5 rotate-90">
+          <Icon name="ArrowRight" size={18} />
         </div>
 
         {/* Row 3: The reality */}
-        <div className="reality-box px-8 py-5 rounded-xl border border-emerald-500/30 bg-black/60">
-          <div className="flex items-center gap-3 mb-3 justify-center">
-            <Icon name="Zap" size={20} className="text-emerald-400" />
-            <span className="text-emerald-400 font-semibold">The Missing Piece</span>
+        <div className="reality-box px-6 py-3 rounded-xl border border-emerald-500/30 bg-black/60">
+          <div className="flex items-center gap-2 mb-1.5 justify-center">
+            <Icon name="Zap" size={18} className="text-emerald-400" />
+            <span className="text-emerald-400 font-semibold text-sm">The Missing Piece</span>
           </div>
-          <p className="font-mono text-xl text-white/90 text-center">
-            Effective Load = Input + (<span className="text-emerald-400">Output</span> + <span className="text-violet-400">Reasoning</span>) × <span className="text-amber-400 font-bold">8</span>
+          <p className="font-mono text-lg text-white/90 text-center">
+            Effective Load = Input + (<span className="text-emerald-400">Output</span> + <span className="text-violet-400">Reasoning</span>) &times; <span className="text-amber-400 font-bold">8</span>
           </p>
-          <p className="text-white/40 text-sm text-center mt-2">
-            Output and reasoning tokens have 8× the weight
+          <p className="text-white/40 text-xs text-center mt-1">
+            Output and reasoning tokens have 8&times; the weight
           </p>
         </div>
       </div>
