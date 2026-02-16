@@ -107,7 +107,7 @@ export function AgenticEstimationProblem({ active }: Props) {
             <div className="h-full px-6 py-6 rounded-xl border border-amber-500/30 bg-black/60">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                  <Icon name="GitBranch" size={22} className="text-amber-400" />
+                  <Icon name="Network" size={22} className="text-amber-400" />
                 </div>
                 <span className="text-amber-400 font-semibold">Agentic Workflow</span>
               </div>
@@ -117,7 +117,7 @@ export function AgenticEstimationProblem({ active }: Props) {
                 <div className="flex items-center gap-6">
                   <div className="flex flex-col items-center">
                     <div className="w-9 h-9 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                      <Icon name="Tool" size={16} className="text-amber-400" />
+                      <Icon name="Wrench" size={16} className="text-amber-400" />
                     </div>
                   </div>
                   <div className="flex flex-col items-center">
@@ -127,7 +127,7 @@ export function AgenticEstimationProblem({ active }: Props) {
                   </div>
                   <div className="flex flex-col items-center">
                     <div className="w-9 h-9 rounded bg-amber-500/20 border border-amber-500/30 flex items-center justify-center">
-                      <Icon name="Tool" size={16} className="text-amber-400" />
+                      <Icon name="Wrench" size={16} className="text-amber-400" />
                     </div>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export function AgenticEstimationProblem({ active }: Props) {
         <div className="callout max-w-2xl">
           <div className="px-8 py-4 rounded-xl bg-white/5 border border-white/10">
             <p className="text-white/70 text-center">
-              <Icon name="AlertCircle" size={18} className="text-amber-400 inline mr-2" />
+              <Icon name="Zap" size={18} className="text-amber-400 inline mr-2" />
               The same prompt can consume <span className="text-white/90">10x different capacity</span> depending on the path the agent takes
             </p>
           </div>
