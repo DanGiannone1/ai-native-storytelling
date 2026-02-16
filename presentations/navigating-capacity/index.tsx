@@ -18,6 +18,7 @@ import {
   AgenticEstimationApproach,
   RegionalVsGlobal,
   PriorityProcessing,
+  ClosingSlide,
 } from './slides'
 
 export const metadata = {
@@ -53,6 +54,7 @@ export default function NavigatingCapacityPresentation() {
       <AgenticEstimationApproach active={false} />
       <RegionalVsGlobal active={false} />
       <PriorityProcessing active={false} />
+      <ClosingSlide active={false} />
     </DeckPlayer>
   )
 }

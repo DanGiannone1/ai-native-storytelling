@@ -7,7 +7,7 @@ interface Props {
 }
 
 /**
- * Foundry Landscape - The untapped potential beyond OpenAI
+ * Foundry Model Catalog - The untapped potential beyond OpenAI
  */
 export function FoundryLandscape({ active }: Props) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -62,7 +62,7 @@ export function FoundryLandscape({ active }: Props) {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
-            The Foundry Landscape
+            Foundry Model Catalog
           </h1>
           <p className="slide-subtitle text-white/50 mt-3 text-lg">
             Untapped potential beyond OpenAI
@@ -73,8 +73,8 @@ export function FoundryLandscape({ active }: Props) {
         <div className="stat-box mb-10">
           <div className="px-10 py-6 rounded-2xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 border border-violet-500/30">
             <div className="text-center">
-              <span className="text-7xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-cyan-400">
-                99%
+              <span className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-cyan-400">
+                Vast Majority
               </span>
               <p className="text-white/70 text-lg mt-2">
                 of customers only use OpenAI models
