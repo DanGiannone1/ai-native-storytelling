@@ -16,6 +16,8 @@ import {
   BatchMode,
   AgenticEstimationProblem,
   AgenticEstimationApproach,
+  RegionalVsGlobal,
+  PriorityProcessing,
 } from './slides'
 
 export const metadata = {
@@ -49,6 +51,8 @@ export default function NavigatingCapacityPresentation() {
       <BatchMode active={false} />
       <AgenticEstimationProblem active={false} />
       <AgenticEstimationApproach active={false} />
+      <RegionalVsGlobal active={false} />
+      <PriorityProcessing active={false} />
     </DeckPlayer>
   )
 }
