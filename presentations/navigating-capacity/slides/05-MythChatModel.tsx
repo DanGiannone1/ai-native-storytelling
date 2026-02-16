@@ -72,7 +72,7 @@ export function MythChatModel({ active }: Props) {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
-            Common Misconception
+            Common Misconception <span className="text-cyan-400">#1</span>
           </h1>
           <p className="slide-subtitle text-white/50 mt-3 text-lg">
             "I'm building a chat application, so I need the Chat model"

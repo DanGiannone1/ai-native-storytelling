@@ -22,6 +22,7 @@ export function CodexBeyondCode({ active }: Props) {
     const title = container.querySelector('.slide-title')
     const subtitle = container.querySelector('.slide-subtitle')
     const centerHub = container.querySelector('.center-hub')
+    const lines = container.querySelectorAll('.connection-line')
     const useCases = container.querySelectorAll('.use-case')
     const callout = container.querySelector('.callout')
 
@@ -33,14 +34,26 @@ export function CodexBeyondCode({ active }: Props) {
       { opacity: 1, scale: 1, duration: 0.6, delay: 0.5, ease: 'back.out(1.5)' }
     )
 
+    // Lines draw outward from center
+    lines.forEach((line, i) => {
+      const length = (line as SVGLineElement).getTotalLength?.() || 250
+      gsap.set(line, { strokeDasharray: length, strokeDashoffset: length })
+      gsap.to(line, {
+        strokeDashoffset: 0,
+        duration: 0.4,
+        delay: 0.9 + i * 0.08,
+        ease: 'power2.out'
+      })
+    })
+
     gsap.fromTo(useCases,
       { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, duration: 0.5, stagger: 0.1, delay: 0.8, ease: 'back.out(1.4)' }
+      { opacity: 1, scale: 1, duration: 0.4, stagger: 0.08, delay: 1.1, ease: 'back.out(1.4)' }
     )
 
     gsap.fromTo(callout,
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 0.6, delay: 1.5 }
+      { opacity: 1, y: 0, duration: 0.6, delay: 1.8 }
     )
 
   }, [active])
@@ -78,10 +91,10 @@ export function CodexBeyondCode({ active }: Props) {
         {/* Header */}
         <div className="text-center mb-6">
           <h1 className="slide-title text-5xl font-bold tracking-[0.08em] bg-clip-text text-transparent bg-gradient-to-b from-white to-slate-400 uppercase">
-            Codex Beyond Code
+            Common Misconception <span className="text-emerald-400">#2</span>
           </h1>
           <p className="slide-subtitle text-white/50 mt-3 text-lg">
-            "Codex models are only for coding tasks" — False
+            "Codex models are only for coding tasks"
           </p>
         </div>
 
@@ -92,13 +105,14 @@ export function CodexBeyondCode({ active }: Props) {
             {useCases.map((uc, i) => (
               <line
                 key={i}
+                className="connection-line"
                 x1="350"
                 y1="190"
                 x2={350 + uc.position.x}
                 y2={190 + uc.position.y}
                 stroke={uc.color}
                 strokeWidth="2"
-                strokeOpacity="0.3"
+                strokeOpacity="0.4"
               />
             ))}
           </svg>
